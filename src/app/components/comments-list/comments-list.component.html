@@ -1,0 +1,110 @@
+<!-- <p>topic-list works!</p> -->
+
+<!-- NAVBAR STARTS -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top: 100px;   ">
+    <!-- <a class="navbar-brand" href="#">Interview QA forum</a> -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent"
+      style="background: #3E8DA8; margin-left: 200px; margin-right: 200px; height: 50px; width: 100px;">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/createPost"
+            style="text-align: center; border: solid 2px black; background-color: aliceblue; font-weight: 500; color: black; width: 100px;  margin-left: 120px;">Post</a>
+        </li>
+  
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/addT"
+            style="text-align: center; border: solid 2px black; background-color: aliceblue; font-weight: 500; color: black;">Add A
+            topic <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/tList"
+            style="text-align: center; border: solid 2px black; background-color: aliceblue; font-weight: 500; color: black;">List Of
+            Topics</a>
+        </li>
+  
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/add"
+            style="text-align: center; border: solid 2px black; background-color: aliceblue; color: black;font-weight: 500;color: black; ">Add
+            A Comment <span class="sr-only">(current)</span></a>
+        </li>
+  
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/detailscomments"
+            style="text-align: center; border: solid 2px black; background-color: aliceblue; font-weight: 500; color: black;">List Of
+            Comments</a>
+        </li>
+  
+  
+      </ul>
+  
+    </div>
+  </nav>
+  
+  <!-- NAVBAR ENDS -->
+
+<div class="panel panel-primary" style="margin-top: 10px;">
+    <div class="panel-heading">
+      <h2 style=" background-color: antiquewhite; text-align: center;">comments List</h2>
+      <hr>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped" style="background-color: antiquewhite;">
+        <thead>
+          <tr style=" font-size: 25px; font-weight: 400; text-align: center;">
+            <th style="border: 2px solid black; ">Comments-Id</th>
+            <th style="border: 2px solid black; ">Comments-Title</th>
+            <th style="border: 2px solid black; ">Delete A comment</th>
+            <th style="border: 2px solid black; ">Get Details Of Comment</th>
+            <th style="border: 2px solid black; ">Edit A Comment</th>
+
+          </tr>
+          <br>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of comments |  async" style="border: 2px solid black; text-align: center;">
+            <td style="font-size: 20px; border: 2px solid black; ">{{c.commentsId}}</td>
+
+            <td style="font-size: 20px;">{{c.contents}}</td>
+           
+            <td style="border: 2px solid black; "><button (click)="deleteCommentsById(c.commentsId)"  class="btn btn-danger ">Delete</button>  </td>           
+           <td style="border: 2px solid black; "><button (click)=" getoneCommentsById(c.commentsId)"  class="btn btn-primary">Details</button></td>
+           <td style="border: 2px solid black; "><button (click)="updateComments(c.commentsId)" class="btn btn-primary" >Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+<!-- <div class="panel panel-primary" style="margin-top: 100px;">
+    <div class="panel-heading">
+      <h2>Comment List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Comment-Id</th>
+            <th>Contents</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of comments |  async">
+            <td>{{c.CommentId}}</td>
+            <td>{{c.contents}}</td>
+  
+            <td><button (click)="deleteComments(c.commentsId)" class="btn btn-danger">Delete</button> </td>
+            <button (click)="commentsDetails(c.commentsId)" class="btn btn-info"
+              style="margin-left: 10px">Details</button>
+            <button (click)="updateDetails(c.commentsId)" class="btn btn-info" style="margin-left: 10px">Edit</button>
+  
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> -->

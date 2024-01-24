@@ -1,0 +1,81 @@
+<!-- <p>topic-list works!</p> -->
+<!-- NAVBAR STARTS -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top: 100px;   ">
+  <!-- <a class="navbar-brand" href="#">Interview QA forum</a> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent"
+    style="background: #3E8DA8; margin-left: 200px; margin-right: 200px; height: 50px; width: 100px;">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/createPost"
+          style="text-align: center; border: solid 2px black; background-color: aliceblue; font-weight: 500; color: black; width: 100px;  margin-left: 120px;">Post</a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/addT"
+          style="text-align: center; border: solid 2px black; background-color: aliceblue; font-weight: 500; color: black;">Add A
+          topic <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/tList"
+          style="text-align: center; border: solid 2px black; background-color: aliceblue; font-weight: 500; color: black;">List Of
+          Topics</a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/comments"
+          style="text-align: center; border: solid 2px black; background-color: aliceblue; color: black;font-weight: 500;color: black; ">Add
+          A Comment <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/listofcomments"
+          style="text-align: center; border: solid 2px black; background-color: aliceblue; font-weight: 500; color: black;">List Of
+          Comments</a>
+      </li>
+
+
+    </ul>
+
+  </div>
+</nav>
+
+<!-- NAVBAR ENDS -->
+
+
+<div class="panel panel-primary" style="margin-top: 10px;">
+    <div class="panel-heading">
+      <h2 style=" background-color: antiquewhite; text-align: center;">Topics List</h2>
+      <hr>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped" style="background-color: antiquewhite;">
+        <thead>
+          <tr style=" font-size: 25px; font-weight: 400; text-align: center;">
+            <th style="border: 2px solid black; ">Topic-Id</th>
+            <th style="border: 2px solid black; ">Topic-Title</th>
+            <th style="border: 2px solid black; ">Delete A Topic</th>
+            <th style="border: 2px solid black; ">Get Details Of Topic</th>
+            <th style="border: 2px solid black; ">Edit A Topic</th>
+
+          </tr>
+          <br>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of topic |  async" style="border: 2px solid black; text-align: center;">
+            <td style="font-size: 20px; border: 2px solid black; ">{{t.topicId}}</td>
+
+            <td style="font-size: 20px;">{{t.title}}</td>
+           
+            <td style="border: 2px solid black; "><button (click)="deleteTopicById(t.topicId)"  class="btn btn-danger ">Delete</button>  </td>           
+           <td style="border: 2px solid black; "><button (click)=" getOneTopic(t.topicId)"  class="btn btn-primary">Details</button></td>
+           <td style="border: 2px solid black; "><button (click)="updateTopic(t.topicId)" class="btn btn-primary" >Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
